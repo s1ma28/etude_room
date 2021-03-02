@@ -1,0 +1,11 @@
+
+composer create-project laravel/laravel etuderoom
+
+php artisan serve
+
+php artisan make:migration create_books_table --create=books
+
+php artisan migrate
+
+php artisan make:model Book
+
