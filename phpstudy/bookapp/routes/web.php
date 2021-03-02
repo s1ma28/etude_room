@@ -20,7 +20,7 @@ Route::get('/', function () {
     // Bookモデルが持つデータを全て取得
     $books = Book::all();
     return view('books', ['books' => $books]);
-});
+})->middleware('auth');   // ログインしていないとアクセスできないようにする。...便利すぎだろ笑！
 
 Route::post('/book', function (Request $request) {
     $validator = Validator::make($request->all(), [
@@ -46,3 +46,7 @@ Route::delete('/book/{book}', function (Book $book) {
 
     return redirect('/');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

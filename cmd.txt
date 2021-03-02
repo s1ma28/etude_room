@@ -9,3 +9,10 @@ php artisan migrate
 
 php artisan make:model Book
 
+composer require laravel/ui
+
+php artisan ui vue --auth
+
+npm install
+npm run dev
+
